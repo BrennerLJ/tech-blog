@@ -1,13 +1,13 @@
-// function to handle the login form submission
+// handle login form submission
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  // get the values of username and password input
+  // get the username and password input
   const username = document.querySelector('#user-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
   console.log(username, password);
 
-  // check if both username and password are provided
+  // check if username and password are provided
   if (username && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    // if the response is ok, redirect to home page
+    // response is ok, redirect to home page
     if (response.ok) {
       document.location.replace('/');
     } else {
@@ -25,16 +25,14 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// function to handle signup form
+// handle signup
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  // get the values of username and password input
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   console.log(username, password);
 
-  // check if both username and password are provided
   if (username && password) {
     const response = await fetch('/api/users/signUp', {
       method: 'POST',
@@ -42,7 +40,6 @@ const signupFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    // if response is ok , redirect to home page
     if (response.ok) {
       document.location.replace('/');
     } else {
@@ -51,7 +48,7 @@ const signupFormHandler = async (event) => {
   }
 };
 
-// event listeners to the login and signup forms
+// event listeners to login and signup forms
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
