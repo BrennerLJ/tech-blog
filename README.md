@@ -3,7 +3,7 @@
 ## description
 A simple tech blog built with Node.js, Express, and MongoDB. This uses the MVC structure. Handlebars.js is used as the template language, the express npm for authentication and Sequelize for the ORM.
 
-## Usage
+## usage
 -Start the MySQL server by running mysql -u root -p
 -Next run npm run seed in the seeds directory
 -Run node server.js  in the server.js file
