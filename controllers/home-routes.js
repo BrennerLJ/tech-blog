@@ -1,9 +1,9 @@
 // import Express router, models and authentication middleware
 const router = require('express').Router();
 const { Post, Comments, User } = require('../models');
-const auth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
       const dbPostData = await Post.findAll({
         include: {model: User},
@@ -34,7 +34,7 @@ router.get('/login', (req, res) => {
   });
   
   //goes to post page by id
-  router.get('/post/:id', (req, res) => {
+  router.get('/post/:id', withAuth, async (req, res) => {
     Post.findOne({
       where: {
           id: req.params.id
