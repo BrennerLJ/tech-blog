@@ -1,43 +1,19 @@
-<h1>Tech Blog</h1>
 <div class="container">
-  <div class="row-homepage-main">
-    {{#each homePost as |homePost|}}
-    <div class="row mb-4 project card text-dark shadow">
-      <div class="card-header">
-        <h3>
-          <a href="/homePost/{{homePost.id}}">{{homePost.title}}</a>
-        </h3>
-        <p>Posted by
-          {{homePost.user.name}}
-          on
-          {{format_date homePost.date_created}}
-        </p>
+  <div class="row homepage-main">
+    {{#each blogPosts as |blogPost|}}
+      <div class="row mb-4 project card text-dark shadow">
+        <div class="card-header">
+          <h3>
+            <a href="/blogPost/{{blogPost.id}}">{{blogPost.title}}</a>
+          </h3>
+          <p>Posted by{{blogPost.user.name}}
+            on
+            {{format_date blogPost.date_created}}</p>
+          </div>
+          <div class="card-body">
+            <p>{{blogPost.description}}</p>
+          </div>
       </div>
-      <div class="card-body">
-        <p>{{homePost.description}}</p>
-      </div>
-    </div>
     {{/each}}
   </div>
 </div>
-</div>
-{{#each homePost as |post|}}
-  <a href="/post/" {{id}}>
-    <h3>{{title}}</h3>
-    <strong>{{user.name}}</strong>
-    <p>{{content}}</p>
-    <p>{{date_created}}</p>
-  </a>
-{{/each}}
-
-<button id="add-btn">Add post</button>
-
-<form id="input-wrapper">
-  <input type="text" id="title" value="Title" /><br /><br />
-  <textarea id="new-post" name="post">
-    Write post
-  </textarea>
-  <input id="submit-post" type="submit" value="Submit" />
-</form>
-
-<script src="./js/handlePost.js"></script>
