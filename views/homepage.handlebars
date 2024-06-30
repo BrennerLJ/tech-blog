@@ -1,5 +1,26 @@
 <h1>Tech Blog</h1>
-
+<div class="container">
+  <div class="row-homepage-main">
+    {{#each homePost as |homePost|}}
+    <div class="row mb-4 project card text-dark shadow">
+      <div class="card-header">
+        <h3>
+          <a href="/homePost/{{homePost.id}}">{{homePost.title}}</a>
+        </h3>
+        <p>Posted by
+          {{homePost.user.name}}
+          on
+          {{format_date homePost.date_created}}
+        </p>
+      </div>
+      <div class="card-body">
+        <p>{{homePost.description}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+</div>
 {{#each homePost as |post|}}
   <a href="/post/" {{id}}>
     <h3>{{title}}</h3>

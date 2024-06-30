@@ -12,21 +12,13 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_PW,
     {
       host: 'localhost',
+      password: 'jazzjolley',
       dialect: 'mysql',
+      dialectModule: require('mysql2'),
       port: 3306,
     },
   );
 }
-const sequelize = process.env.JAWSDB_URL
-  ? new Sequelize(process.env.JAWSDB_URL)
-  : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
-      host: 'localhost',
-      dialect: 'mysql',
-      dialectModule: require('mysql2'),
-      dialectOptions: {
-        decimalNumbers: true,
-      },
-    });
 
 
 module.exports = sequelize;
