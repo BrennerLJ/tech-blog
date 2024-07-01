@@ -6,8 +6,8 @@ const postId = document.querySelector('.post-id').getAttribute('data-id');
 // function to handle submitting a new comment
 async function commentHandler(event) {
     event.preventDefault();
-    const content = document.getElementById('new-comment').value.trim();;
-    if(content != 'comment goes here' && content){
+    const comment = document.getElementById('new-comment').value.trim();
+    if(comment != 'comment goes here' && comment){
 
         // send a POST request to the comment endpoint with post_id and content
         const response = await fetch('/api/comment/', {
