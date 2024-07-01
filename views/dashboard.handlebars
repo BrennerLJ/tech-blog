@@ -36,26 +36,3 @@
 </div>
 
 <script src="/js/dashboard.js"></script>
-
-<h2>Posts</h2>
-
-<section>
-{{#if posts.length}}
-    {{#each posts as |post|}}
-        <h3>{{title}}</h3>
-        <strong>{{user.name}}</strong>
-        <p>{{content}}</p>
-        <p>{{date_created}}</p>
-    {{/each}}
-{{/if}}
-</section>
-
-<form id="input-wrapper">
-    <input type="text" id="title" value="Title"><br><br>
-    <textarea id="new-post" name="post">
-        Post Here
-    </textarea>
-    <input id="submit-post" type="submit" value="Submit">
-</form>
-
-<script src="./js/handlePost.js"></script>
