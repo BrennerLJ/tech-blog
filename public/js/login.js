@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   // get the username and password input
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
-  console.log(username, password);
+  console.log(email, password);
 
   // check if username and password are provided
   if (email && password) {
@@ -20,7 +20,6 @@ const loginFormHandler = async (event) => {
       document.location.replace('/');
     } else {
       alert('Failed to log in.');
-      console.log(username, password);
     }
   }
 };
@@ -32,7 +31,6 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const name = document.querySelector('#name-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-  console.log(username, password);
 
   if (name && email && password) {
     const response = await fetch('/api/users', {
