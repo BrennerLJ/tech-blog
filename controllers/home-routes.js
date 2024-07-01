@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
           },
           {
             model: Comments,
-            attributes: ["comment_body"],
+            attributes: ["comment"],
           },
         ]
       });
